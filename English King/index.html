@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VOCAB KING</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>VOCAB KING</h1>
+    <div class="controls">
+      <button id="singleModeBtn" class="active">Single Input</button>
+      <button id="bulkModeBtn">Bulk Input</button>
+    </div>
+    <div class="global-actions">
+      <input type="text" id="searchBar" placeholder="Search English or Bangla...">
+      <select id="sortOptions">
+        <option value="newest">Newest</option>
+        <option value="oldest">Oldest</option>
+        <option value="random">Random</option>
+      </select>
+      <button id="flipAllBtn">Flip all to Bangla</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="inputSection">
+      <!-- Single Input -->
+      <div id="singleInput">
+        <input type="text" id="englishWord" placeholder="English Word">
+        <input type="text" id="banglaWord" placeholder="Bangla Word">
+        <input type="text" id="exampleSentence" placeholder="Example Sentence (Optional)">
+        <button id="addCardBtn">Add Card</button>
+      </div>
+      <!-- Bulk Input -->
+      <div id="bulkInput">
+        <textarea id="bulkTextarea" placeholder="English=Bangla, English=Bangla, ..."></textarea>
+        <button id="addBulkBtn">Add Bulk Cards</button>
+      </div>
+    </section>
+
+    <section id="cardsContainer"></section>
+  </main>
+
+  <aside id="exampleSidebar">
+    <div class="sidebar-header">
+      <h3>Example Sentence</h3>
+      <button id="closeSidebar">✕</button>
+    </div>
+    <div id="exampleContent"></div>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>

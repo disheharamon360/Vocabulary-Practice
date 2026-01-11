@@ -1,0 +1,278 @@
+/* BASE & RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #111;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+header {
+  padding: 20px;
+  background: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+header h1 {
+  color: orange;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.controls button {
+  padding: 8px 20px;
+  background: #222;
+  border: 1px solid orange;
+  color: orange;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.controls button.active,
+.controls button:hover {
+  background: orange;
+  color: #111;
+}
+
+.global-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.global-actions input,
+.global-actions select,
+.global-actions button {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  font-size: 0.95rem;
+}
+
+.global-actions input {
+  width: 200px;
+}
+
+.global-actions select {
+  background: #222;
+  color: #fff;
+}
+
+.global-actions button {
+  background: orange;
+  color: #111;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.global-actions button:hover {
+  background: darkorange;
+}
+
+/* INPUT SECTIONS */
+#inputSection {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  gap: 20px;
+}
+
+#singleInput,
+#bulkInput {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#singleInput input,
+#bulkInput textarea {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background: #222;
+  color: #fff;
+}
+
+#singleInput button,
+#bulkInput button {
+  background: orange;
+  color: #111;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+#singleInput button:hover,
+#bulkInput button:hover {
+  background: darkorange;
+}
+
+#bulkInput {
+  display: none;
+}
+
+/* CARDS */
+#cardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  perspective: 1000px;
+  width: 200px;
+  height: 120px;
+  position: relative;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.card-front {
+  background: linear-gradient(135deg, #222, #333);
+  color: orange;
+}
+
+.card-back {
+  background: linear-gradient(135deg, #333, #444);
+  color: #fff;
+  transform: rotateY(180deg);
+}
+
+/* CARD MENU */
+.card-menu {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.card-options {
+  display: none;
+  position: absolute;
+  top: 25px;
+  right: 0;
+  background: #222;
+  border-radius: 6px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.card-options button {
+  display: block;
+  padding: 5px 12px;
+  width: 100%;
+  background: #222;
+  color: #fff;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.card-options button:hover {
+  background: orange;
+  color: #111;
+}
+
+/* SIDEBAR */
+#exampleSidebar {
+  position: fixed;
+  right: -350px;
+  top: 0;
+  width: 350px;
+  height: 100%;
+  background: #1a1a1a;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.5);
+  transition: right 0.4s ease;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+}
+
+#exampleSidebar.active {
+  right: 0;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #333;
+}
+
+#exampleContent {
+  padding: 15px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  #inputSection{
+    flex-direction: column;
+    align-items: center;
+  }
+  #cardsContainer{
+    gap: 15px;
+  }
+  #exampleSidebar{
+    width: 100%;
+  }
+  .global-actions{
+    flex-direction: column;
+    gap: 10px;
+  }
+}
